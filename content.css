@@ -1,0 +1,108 @@
+/* Uses GitHub's own Primer CSS variables so the panel follows light/dark themes. */
+
+.eli5-box {
+  margin: 8px 0 4px;
+  border: 1px solid var(--borderColor-default, #d0d7de);
+  border-left: 3px solid var(--borderColor-accent-emphasis, #0969da);
+  border-radius: 6px;
+  background: var(--bgColor-muted, #f6f8fa);
+  color: var(--fgColor-default, #1f2328);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.eli5-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+}
+
+.eli5-badge {
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  padding: 1px 6px;
+  border-radius: 999px;
+  color: var(--fgColor-onEmphasis, #fff);
+  background: var(--bgColor-accent-emphasis, #0969da);
+}
+
+.eli5-kind {
+  font-size: 12px;
+  color: var(--fgColor-muted, #59636e);
+  text-transform: capitalize;
+}
+.eli5-kind[data-kind="change request"] { color: var(--fgColor-danger, #d1242f); font-weight: 600; }
+.eli5-kind[data-kind="nitpick"],
+.eli5-kind[data-kind="praise"] { color: var(--fgColor-success, #1a7f37); }
+
+.eli5-spacer { flex: 1; }
+
+.eli5-content {
+  padding: 0 10px 10px;
+}
+.eli5-collapsed .eli5-content { display: none; }
+
+.eli5-section + .eli5-section { margin-top: 8px; }
+
+.eli5-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--fgColor-muted, #59636e);
+  margin-bottom: 2px;
+}
+
+.eli5-section p { margin: 0; }
+
+.eli5-simple p {
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: var(--bgColor-attention-muted, #fff8c5);
+}
+
+.eli5-section code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 12px;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: var(--bgColor-neutral-muted, rgba(175, 184, 193, 0.2));
+}
+
+.eli5-muted { color: var(--fgColor-muted, #59636e); font-style: italic; }
+.eli5-box[data-state="loading"] .eli5-muted::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 6px;
+  vertical-align: -1px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: eli5-spin 0.8s linear infinite;
+}
+@keyframes eli5-spin { to { transform: rotate(360deg); } }
+
+.eli5-error { color: var(--fgColor-danger, #d1242f); }
+.eli5-actions { display: flex; gap: 6px; margin-top: 6px; }
+
+.eli5-btn {
+  font: inherit;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--borderColor-default, #d0d7de);
+  background: var(--bgColor-default, #fff);
+  color: var(--fgColor-default, #1f2328);
+  cursor: pointer;
+}
+.eli5-btn:hover { background: var(--bgColor-neutral-muted, #eaeef2); }
+.eli5-btn.eli5-primary {
+  border-color: transparent;
+  background: var(--bgColor-accent-emphasis, #0969da);
+  color: var(--fgColor-onEmphasis, #fff);
+}
+.eli5-btn.eli5-primary:hover { filter: brightness(1.08); }

@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "PR Comment ELI5",
+  "version": "1.0.0",
+  "description": "Explains GitHub pull request review comments in plain language, with a short ELI5, using Claude or any model on OpenRouter.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://api.anthropic.com/*", "https://openrouter.ai/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "PR Comment ELI5 settings"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
